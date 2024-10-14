@@ -44,8 +44,23 @@ public class LivroControl {
         return lRepository.findAll();
     }
 
-    @GetMapping("produto/{idLivro}")
+    @GetMapping("/livro/{idLivro}")
     public Optional<Livro> buscarPorId(@PathVariable(value = "idLivro") int idLivro){
         return lRepository.findById(idLivro);
+    }
+
+    @GetMapping("/buscar/nome/{nome}")
+    public List<Livro> buscarPorNome(@PathVariable(value = "nome") String nome){
+        return lRepository.findByNome(nome);
+    }
+
+    @GetMapping("/buscar/autor/{autor}")
+    public List<Livro> buscarPorAutor(@PathVariable(value = "autor") String autor){
+        return lRepository.findByAutor(autor);
+    }
+
+    @GetMapping("/buscar/anoFabricacao/{anoFabricacao}")
+    public List<Livro> buscarPorAno(@PathVariable(value = "anoFabricacao") int anoFabricacao){
+        return lRepository.findByAnoFabricacao(anoFabricacao);
     }
 }
