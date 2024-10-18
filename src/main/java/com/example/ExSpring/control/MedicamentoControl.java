@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/medicamento")
+@RequestMapping("apiMedicamento")
 public class MedicamentoControl {
 
     @Autowired
@@ -61,4 +61,20 @@ public class MedicamentoControl {
     public List<Medicamento> buscarPorPreco(@PathVariable(value = "preco") double preco){
         return mRepository.findByPreco(preco);
     }
+
+    @GetMapping("/buscar/parteNome/{parte}")
+    public List<Medicamento> buscarPorParteNome(@PathVariable(value = "parte") String parte){
+        return mRepository.findByParteNome(parte);
+    }
+
+    @GetMapping("/buscar/precoMaior/{parte}")
+    public List<Medicamento> buscarPorPrecoMaior(@PathVariable double parte){
+        return mRepository.findByPrecoMaior(parte);
+    }
+
+    @GetMapping("/buscar/parteNomePrecoMaior/{parte}/{preco}")
+    public List<Medicamento> buscarPorParteNomePrecoMaior(@PathVariable String parte, @PathVariable double preco){
+        return mRepository.findByParteNomePrecoMaior(parte, preco);
+    }
+
 }

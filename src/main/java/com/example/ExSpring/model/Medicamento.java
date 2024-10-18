@@ -24,9 +24,6 @@ public class Medicamento {
     @Column
     private double dosagem;
 
-    @Column
-    private boolean receitaObrigatoria;
-
 
     public int getIdMedicamento() {
         return idMedicamento;
@@ -66,14 +63,6 @@ public class Medicamento {
 
     public void setDosagem(double dosagem) {
         this.dosagem = dosagem;
-    }
-
-    public boolean isReceitaObrigatoria() {
-        return receitaObrigatoria;
-    }
-
-    public void setReceitaObrigatoria(boolean receitaObrigatoria) {
-        this.receitaObrigatoria = receitaObrigatoria;
     }
 
 }
