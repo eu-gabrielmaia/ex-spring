@@ -9,20 +9,20 @@ import jakarta.persistence.Table;
 @Entity
 public class Cliente {
     @Id
-    private int idCliente;
+    private int codigo;
 
     @Column
     private String nome;
 
     @Column
-    private int idade;
+    private String email;
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNome() {
@@ -33,11 +33,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getEmail() {
+        return email;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -10,20 +10,23 @@ import jakarta.persistence.Table;
 public class Produto {
 
     @Id
-    private int idProduto;
+    private int codigo;
 
     @Column
     private String descricao;
 
     @Column
+    private String marca;
+
+    @Column
     private double preco;
 
-    public int getIdProduto() {
-        return idProduto;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getDescricao() {
@@ -32,6 +35,14 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public double getPreco() {

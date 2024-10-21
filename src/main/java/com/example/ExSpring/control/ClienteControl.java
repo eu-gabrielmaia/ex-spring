@@ -1,6 +1,7 @@
 package com.example.ExSpring.control;
 
 import com.example.ExSpring.model.Cliente;
+import com.example.ExSpring.model.Medicamento;
 import com.example.ExSpring.model.Produto;
 import com.example.ExSpring.repository.ClienteRepository;
 import com.example.ExSpring.repository.ProdutoRepository;
@@ -29,9 +30,9 @@ public class ClienteControl {
         cRepository.delete(c);
     }
 
-    @DeleteMapping("/excluirPorId/{idCliente}")
-    public void excluirPorId(@PathVariable(value = "idCliente") int idCliente){
-        cRepository.deleteById(idCliente);
+    @DeleteMapping("/excluirPorId/{codigo}")
+    public void excluirPorId(@PathVariable(value = "codigo") int codigo){
+        cRepository.deleteById(codigo);
     }
 
     @PutMapping("/atualizar")
@@ -40,12 +41,22 @@ public class ClienteControl {
     }
 
     @GetMapping("/todos")
-    public List<Cliente> buscarProdutos(){
+    public List<Cliente> buscarClientes(){
         return cRepository.findAll();
     }
 
-    @GetMapping("/cliente/{idCliente}")
-    public Optional<Cliente> buscarPorId (@PathVariable(value="idCliente") int idCliente){
-        return cRepository.findById(idCliente);
+    @GetMapping("/cliente/{codigo}")
+    public Optional<Cliente> buscarPorCodigo (@PathVariable(value="codigo") int codigo){
+        return cRepository.findById(codigo);
+    }
+
+    @GetMapping("/buscar/nome/{nome}")
+    public List<Cliente> buscarPorNome(@PathVariable(value = "nome") String nome){
+        return cRepository.findByNome(nome);
+    }
+
+    @GetMapping("/buscar/parteNome/{parte}")
+    public List<Cliente> buscarPorParteNome(@PathVariable(value = "parte") String parte){
+        return cRepository.findByParteNome(parte);
     }
 }
